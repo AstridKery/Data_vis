@@ -1,0 +1,17 @@
+Name,Gender,Major,Year,Transfer
+Kevin,male,CompS,Senior,No
+Betty,female,CompE,Senior,No
+Jeffrey,male,CompS,Junior,No
+Isaiah,male,CompE,Freshman,No
+Gabby,female,ChemE,Junior,No
+Red,female,ChemE,Sophomore,Not Specified
+Sapphire,female,MechE,Sophomore,No
+Buttercup,male,MechE,Not Specified,Not Specified
+Blue1,male,InfoS,Not Specified,No
+Blue2,male,InfoS,Not Specified,No
+Tom,male,CompS,Senior,No
+Joe,male,CompS,Freshman,No
+Laura,female,MechE,Senior,No
+Marie,female,CompE,Sophomore,Yes
+Maria,female,InfoS,Not Specified,Yes
+Jessica,female,CompS,Not Specified,Yes

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <title>Visualization Focus Group Transcripts</title>
+</head>
+<body>
+    <div class="ui container">
+
+        <!--BEGIN TABS-->
+        <div id="context">
+            <div class="ui tabular menu">
+                <a class="item active" data-tab="prof" data-content="Interactions with professors and faculty">Professor</a>
+                <a class="item" data-tab="gen" data-content="Gender related">Gender</a>
+                <a class="item" data-tab="rac" data-content="Race/ethnicity related">Race</a>
+                <a class="item" data-tab="peer" data-content="Experiences with peers">Peers</a>
+                <a class="item" data-tab="sterm" data-content="Generalizations; Stereotypes or observations about the kind of people in a major & general stereotypes from other identities">Stereotypes</a>
+                <a class="item" data-tab="comm" data-content="The sense of community within the major">Community</a>
+                <a class="item" data-tab="expm" data-content="Standard; Expectations about major or student's preparedness for the major">Expectation</a>
+                <a class="item" data-tab="imp" data-content="Areas of improvement">Recommendations</a>
+            </div>
+
+            <!--PROFESSOR-->
+            <div class="ui active tab segment" data-tab="prof">
+                <div class="ui equal width grid">
+                    <div class="stretched row">
+                        <div class="column">
+                            <div class="ui segment" id="prof_clouds">
+                                <h3>BiGrams</h3>
+                            </div>
+                            <div class="ui segment" id="prof_bar">
+                                <h3>Co-occurring Tag Comparison</h3>
+                            </div>
+                        </div>
+                        <div class="six wide column">
+                            <div class="ui segment" id="prof_stack">
+                                <h3>Demographics</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ui top attached pointing secondary menu">
+                            <a class="active item" data-tab="prof_quotes">Quotes</a>
+                        </div>
+                        <div class="ui bottom attached active tab segment" data-tab="prof_quotes" id="prof_quotes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--GENDER-->
+            <div class="ui tab segment" data-tab="gen">
+                <div class="ui equal width grid">
+                    <div class="stretched row">
+                        <div class="column">
+                            <div class="ui segment" id="gen_clouds">
+                                <h3>BiGrams</h3>
+                            </div>
+                            <div class="ui segment" id="gen_bar">
+                                <h3>Co-occurring Tag Comparison</h3>
+                            </div>
+                        </div>
+                        <div class="six wide column">
+                            <div class="ui segment" id="gen_stack">
+                                <h3>Demographics</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ui top attached pointing secondary menu">
+                            <a class="active item" data-tab="gen_quotes">Quotes</a>
+                        </div>
+                        <div class="ui bottom attached active tab segment" data-tab="gen_quotes" id="gen_quotes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--RACE-->
+            <div class="ui tab segment" data-tab="rac">
+                <div class="ui equal width grid">
+                    <div class="stretched row">
+                        <div class="column">
+                            <div class="ui segment" id="rac_clouds">
+                                <h3>BiGrams</h3>
+                            </div>
+                            <div class="ui segment" id="rac_bar">
+                                <h3>Co-occurring Tag Comparison</h3>
+                            </div>
+                        </div>
+                        <div class="six wide column">
+                            <div class="ui segment" id="rac_stack">
+                                <h3>Demographics</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ui top attached pointing secondary menu">
+                            <a class="active item" data-tab="rac_quotes">Quotes</a>
+                        </div>
+                        <div class="ui bottom attached active tab segment" data-tab="rac_quotes" id="rac_quotes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--PEER-->
+            <div class="ui tab segment" data-tab="peer">
+                <div class="ui equal width grid">
+                    <div class="stretched row">
+                        <div class="column">
+                            <div class="ui segment" id="peer_clouds">
+                                <h3>BiGrams</h3>
+                            </div>
+                            <div class="ui segment" id="peer_bar">
+                                <h3>Co-occurring Tag Comparison</h3>
+                            </div>
+                        </div>
+                        <div class="six wide column">
+                            <div class="ui segment" id="peer_stack">
+                                <h3>Demographics</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ui top attached pointing secondary menu">
+                            <a class="active item" data-tab="peer_quotes">Quotes</a>
+                        </div>
+                        <div class="ui bottom attached active tab segment" data-tab="peer_quotes" id="peer_quotes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--STEREOTYPES-->
+            <div class="ui tab segment" data-tab="sterm">
+                <div class="ui equal width grid">
+                    <div class="stretched row">
+                        <div class="column">
+                            <div class="ui segment" id="sterm_clouds">
+                                <h3>BiGrams</h3>
+                            </div>
+                            <div class="ui segment" id="sterm_bar">
+                                <h3>Co-occurring Tag Comparison</h3>
+                            </div>
+                        </div>
+                        <div class="six wide column">
+                            <div class="ui segment" id="sterm_stack">
+                                <h3>Demographics</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ui top attached pointing secondary menu">
+                            <a class="active item" data-tab="sterm_quotes">Quotes</a>
+                        </div>
+                        <div class="ui bottom attached active tab segment" data-tab="sterm_quotes" id="sterm_quotes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--COMMUNITY-->
+            <div class="ui tab segment" data-tab="comm">
+                <div class="ui equal width grid">
+                    <div class="stretched row">
+                        <div class="column">
+                            <div class="ui segment" id="comm_clouds">
+                                <h3>BiGrams</h3>
+                            </div>
+                            <div class="ui segment" id="comm_bar">
+                                <h3>Co-occurring Tag Comparison</h3>
+                            </div>
+                        </div>
+                        <div class="six wide column">
+                            <div class="ui segment" id="comm_stack">
+                                <h3>Demographics</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ui top attached pointing secondary menu">
+                            <a class="active item" data-tab="comm_quotes">Quotes</a>
+                        </div>
+                        <div class="ui bottom attached active tab segment" data-tab="comm_quotes" id="comm_quotes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--EXPECTATIONS-->
+            <div class="ui tab segment" data-tab="expm">
+                <div class="ui equal width grid">
+                    <div class="stretched row">
+                        <div class="column">
+                            <div class="ui segment" id="expm_clouds">
+                                <h3>BiGrams</h3>
+                            </div>
+                            <div class="ui segment" id="expm_bar">
+                                <h3>Co-occurring Tag Comparison</h3>
+                            </div>
+                        </div>
+                        <div class="six wide column">
+                            <div class="ui segment" id="expm_stack">
+                                <h3>Demographics</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ui top attached pointing secondary menu">
+                            <a class="active item" data-tab="expm_quotes">Quotes</a>
+                        </div>
+                        <div class="ui bottom attached active tab segment" data-tab="expm_quotes" id="expm_quotes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--IMPROVEMENT-->
+            <div class="ui tab segment" data-tab="imp">
+                <div class="ui equal width grid">
+                    <div class="stretched row">
+                        <div class="column">
+                            <div class="ui segment" id="imp_clouds">
+                                <h3>BiGrams</h3>
+                            </div>
+                            <div class="ui segment" id="imp_bar">
+                                <h3>Co-occurring Tag Comparison</h3>
+                            </div>
+                        </div>
+                        <div class="six wide column">
+                            <div class="ui segment" id="imp_stack">
+                                <h3>Demographics</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ui top attached pointing secondary menu">
+                            <a class="active item" data-tab="imp_quotes">Quotes</a>
+                        </div>
+                        <div class="ui bottom attached active tab segment" data-tab="imp_quotes" id="imp_quotes"></div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--END TABS-->
+    </div> <!--END CONTAINER TABS ARE IN-->
+
+    <!--BEGIN SCRIPTS THAT MAKES TABS CLICKABLE-->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    <script>
+        $('#context .menu .item').tab({context: 'parent'});
+        $('.item').popup('hover');
+
+        //STACK CHART CONTENT
+        make_stack_chart("#prof_stack", "PROF", "Year");
+        make_stack_chart("#prof_stack", "PROF", "Major");
+        make_stack_chart("#prof_stack", "PROF", "Gender");
+
+        make_stack_chart("#gen_stack", "GEN", "Year");
+        make_stack_chart("#gen_stack", "GEN", "Major");
+        make_stack_chart("#gen_stack", "GEN", "Gender");
+
+        make_stack_chart("#rac_stack","RAC", "Year");
+        make_stack_chart("#rac_stack","RAC", "Major");
+        make_stack_chart("#rac_stack","RAC", "Gender");
+
+        make_stack_chart("#peer_stack","PEER", "Year");
+        make_stack_chart("#peer_stack","PEER", "Major");
+        make_stack_chart("#peer_stack","PEER", "Gender");
+
+        make_stack_chart("#sterm_stack","STERM", "Year");
+        make_stack_chart("#sterm_stack","STERM", "Major");
+        make_stack_chart("#sterm_stack","STERM", "Gender");
+
+        make_stack_chart("#comm_stack","COMM", "Year");
+        make_stack_chart("#comm_stack","COMM", "Major");
+        make_stack_chart("#comm_stack","COMM", "Gender");
+
+        make_stack_chart("#expm_stack","EXPM", "Year");
+        make_stack_chart("#expm_stack","EXPM", "Major");
+        make_stack_chart("#expm_stack","EXPM", "Gender");
+
+        make_stack_chart("#imp_stack","IMP", "Year");
+        make_stack_chart("#imp_stack","IMP", "Major");
+        make_stack_chart("#imp_stack","IMP", "Gender");
+        //STACK CHART CONTENT ENDS
+
+        //WORD PIE CONTENT BEGINS
+        make_word_pie("#prof_clouds","PROF");
+        make_word_pie("#gen_clouds","GEN");
+        make_word_pie("#rac_clouds","RAC");
+        make_word_pie("#peer_clouds","PEER");
+        make_word_pie("#sterm_clouds","STERM");
+        make_word_pie("#comm_clouds","COMM");
+        make_word_pie("#expm_clouds","EXPM");
+        make_word_pie("#imp_clouds","IMP");
+        //WORD PIE CONTENT ENDS
+
+        //BAR CHART CONTENT BEGINS
+        make_bar_chart("#prof_bar","PROF");
+        make_bar_chart("#gen_bar","GEN");
+        make_bar_chart("#rac_bar","RAC");
+        make_bar_chart("#peer_bar","PEER");
+        make_bar_chart("#sterm_bar","STERM");
+        make_bar_chart("#comm_bar","COMM");
+        make_bar_chart("#expm_bar","EXPM");
+        make_bar_chart("#imp_bar","IMP");
+        //BAR CHART CONTENT ENDS
+
+        //QUOTES SECTION BEGINS
+        make_quotes_section("#prof_quotes", "PROF");
+        make_quotes_section("#gen_quotes", "GEN");
+        make_quotes_section("#rac_quotes", "RAC");
+        make_quotes_section("#peer_quotes", "PEER");
+        make_quotes_section("#sterm_quotes", "STERM");
+        make_quotes_section("#comm_quotes", "COMM");
+        make_quotes_section("#expm_quotes", "EXPM");
+        make_quotes_section("#imp_quotes", "IMP");
+        //QUOTES SECTION ENDS
+
+        //BEGIN STACK CHART
+        function make_stack_chart(identifier, tag, topic){
+            // Setup svg using Bostock's margin convention
+            var margin = {top: 40, right: 160, bottom: 35, left: 30};
+            var width = 500 - margin.left - margin.right,
+                height = 200 - margin.top - margin.bottom;
+
+            var svg = d3.select(identifier)
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            svg.append("text")
+                .attr("x", (width/2))
+                .attr("y", 0-(margin.top/2))
+                .attr("text-anchor","middle")
+                .style("font-size","16px")
+                .style("text-decoration","underline")
+                .style("font-weight", "bold")
+                .text(topic);
+
+            /* Data in strings like it would be if imported from a csv */
+            d3.csv("stacked_frequency_charts.csv", function(error,data) {
+
+            var newData = Array()
+            data.forEach(function(d) {
+            //console.log(d);
+            d.Pos=+d.Pos;
+            d.Neg=+d.Neg;
+            d.Neu=+d.Neu;
+
+            if(d.Tag== tag && d.D1== topic)
+                {
+                newData.push({"D2":d.D2 , "Pos":d.Pos , "Neg":d.Neg , "Neu":d.Neu});
+                }
+            });
+
+            data=newData;
+            //var parse = d3.time.format("%Y").parse;
+            // Transpose the data into layers
+            var dataset = d3.layout.stack()(["Pos", "Neg", "Neu"].map(function(sentiment) {
+            return data.map(function(d) {
+                return {x: d.D2, y: d[sentiment]};
+            });
+            }));
+            // Set x, y and colors
+            var x = d3.scale.ordinal()
+            .domain(dataset[0].map(function(d) { return d.x; }))
+            .rangeRoundBands([10, width-10], 0.02);
+
+            var y = d3.scale.linear()
+            .domain([0,1])
+            .range([height, 0]);
+
+            var colors = ["#5555C6","#EF9018","#2AAA24"];
+            // Define and draw axes
+            var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .ticks(5)
+            .tickSize(-width, 0, 0)
+            .tickFormat( function(d) { return d } );
+
+
+
+            var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+
+            svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -25)
+            .attr("dy", ".500em")
+            .style("text-anchor", "end")
+            .text("Percentage on  0 to 1 scale");
+
+            svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+            // Create groups for each series, rects for each segment
+            var groups = svg.selectAll("g.cost")
+            .data(dataset)
+            .enter().append("g")
+            .attr("class", "cost")
+            .style("fill", function(d, i) { return colors[i]; });
+
+            var rect = groups.selectAll("rect")
+            .data(function(d) { return d; })
+            .enter()
+            .append("rect")
+            .attr("x", function(d) { return x(d.x); })
+            .attr("y", function(d) { return y(d.y0 + d.y); })
+            .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+            .attr("width", x.rangeBand())
+            .on("mouseover", function() { tooltip.style("display", null); })
+            .on("mouseout", function() { tooltip.style("display", "none"); })
+            .on("mousemove", function(d) {
+                var xPosition = d3.mouse(this)[0] - 15;
+                var yPosition = d3.mouse(this)[1] - 25;
+                tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+                tooltip.select("text").text(d.y);
+            });
+
+            // Draw legend
+            var legend = svg.selectAll(".legend")
+            .data(colors)
+            .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", function(d, i) { return "translate(30," + i * 19 + ")"; });
+
+            legend.append("rect")
+            .attr("x", width - 18)
+            .attr("width", 18)
+            .attr("height", 18)
+            .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+
+            legend.append("text")
+            .attr("x", width + 5)
+            .attr("y", 9)
+            .attr("dy", ".35em")
+            .style("text-anchor", "start")
+            .text(function(d, i) {
+                switch (i) {
+                case 0: return "POSITIVE";
+                case 1: return "NEGATIVE";
+                case 2: return "NEUTRAL";
+                }
+            });
+
+            // Prep the tooltip bits, initial display is hidden
+            var tooltip = svg.append("g")
+            .attr("class", "tooltip")
+            .style("display", "none");
+
+            tooltip.append("rect")
+            .attr("width", 30)
+            .attr("height", 20)
+            .attr("fill", "white")
+            .style("opacity", 0.5);
+
+            tooltip.append("text")
+            .attr("x", 15)
+            .attr("dy", "1.2em")
+            .style("text-anchor", "middle")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold");
+            });
+        }
+
+
+
+        //BEGIN BUBBLE CHART
+        function make_word_pie(identifier,tag){
+          var diameter = 600;
+          var svg = d3.select(identifier)
+            .append("svg")
+            .attr("width",diameter)
+            .attr("height",diameter)
+            .attr("class","bubble");
+
+          d3.csv("word_pies_results.csv", function(error, data) {
+            //Filter the data and get it in the right format
+            var newData = Array()
+            data.forEach(function(d) {
+              d.value = +d.Freq;
+              d.Pos = +d.Pos;
+              d.Neg = +d.Neg;
+              d.Neu = +d.Neu;
+              d.pie = [d.Pos,d.Neu,d.Neg];
+              if(d.Tag === tag)
+              {
+                newData.push(d);
+              }
+            });
+            data = newData;
+            var colors = ["#2AAA24","#5555C6","#EF9018"];
+
+            //Create the pack layout
+            var bubble = d3.layout.pack()
+                .value(function(d){return d.value})
+                .sort(null)
+                .size([diameter, diameter])
+                .padding(8);
+
+            var arc = d3.svg.arc().innerRadius(0);
+            var pie = d3.layout.pie();
+
+            //create the nodes and place them
+            var nodes = svg.selectAll("g.node")
+             .data(bubble.nodes({children: data}).filter(function(d) { return !d.children; }));
+             nodes.enter().append("g")
+              .attr("class", "node")
+              .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+              .on("mouseover", function(d) {
+                tooltip.style("display", null)
+              })
+              .on("mouseout", function() { tooltip.style("display","None")})
+              .on("mousemove", function(d) {
+                  var xPosition = d3.mouse(this)[0] + 30;
+                  var yPosition = d3.mouse(this)[1] - 25;
+                  tooltip.attr("transform", "translate(" + d.x +"," + d.y +")");
+                  var finalText = "";
+                  if(d.Pos > 0)
+                  {
+                    finalText += "Pos: "+d.Pos.toFixed(2)+" ";
+                  }
+                  if(d.Neu > 0)
+                  {
+                    finalText += "Neu: "+d.Neu.toFixed(2) + " ";
+                  }
+                  if(d.Neg > 0)
+                  {
+                    finalText += "Neg: "+d.Neg.toFixed(2)
+                  }
+                  tooltip.select("text").text(finalText);
+              });
+
+              var arcGs = nodes.selectAll("g.arc")
+                  .data(function(d) {
+                    return pie(d.pie).map(function(m) { m.r = d.r; return m; });
+                  });
+             var arcEnter = arcGs.enter().append("g").attr("class", "arc");
+
+            arcEnter.append("path")
+                      .attr("d", function(d) {
+                        arc.outerRadius(d.r);
+                        return arc(d);
+            })
+            .style("fill", function(d, i) { return colors[i]; });
+
+            var labels = nodes.append("text")
+                .attr({
+                  "class": "label",
+                  dy: "0.35em"
+                })
+                .style("text-anchor", "middle")
+                .style("font-weight", "bold")
+                .style("font-size","10px")
+                .text(function(d){return d.Word});
+
+
+                //add tooltips
+                var tooltip = svg
+                  .append("g")
+                  .attr("class", "tooltip")
+                  .style("display", "None");
+
+                  tooltip.append("rect")
+                  .attr("x",-100)
+                  .attr("width", 200)
+                  .attr("height", 20)
+                  .attr("fill", "white")
+                  .style("opacity", 0.5);
+
+                  tooltip.append("text")
+                  .attr("dy", "1.2em")
+                  .style("text-anchor", "middle")
+                  .attr("font-size", "12px")
+                  .attr("font-weight", "bold");
+          });
+        } //END BUBBLE CHART
+
+
+
+        //BEGIN BAR CHART FUNCTION
+        function make_bar_chart(identifier, tag){
+        var margin = {top: 20, right: 20, bottom: 30, left: 40},
+            width = 500 - margin.left - margin.right,
+            height = 200 - margin.top - margin.bottom;
+
+        var x0 = d3.scale.ordinal()
+            .rangeRoundBands([0, width], .1);
+
+        var x1 = d3.scale.ordinal();
+
+        var y = d3.scale.linear()
+            .range([height, 0]);
+
+        var color = d3.scale.ordinal()
+            .range(["#2AAA24", "#EF9018", "#5555C6"]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x0)
+            .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .tickFormat(d3.format(","));
+
+        var svg = d3.select(identifier).append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        d3.csv("tag_tag_counts.csv", function(error, data) {
+        if (error) throw error;
+        var newData = Array()
+        data.forEach(function(d){
+            //console.log(d);
+            d.Pos = +d.Pos;
+            d.Neg = +d.Neg;
+            d.Neu = +d.Neu;
+            if (d.Tag1 == tag && ["PROF", "COMM", "EXPM", "GEN", "RAC", "STERM", "IMP", "PEER"].indexOf(d.Tag2) >=0)
+            {
+            newData.push({"Tag2":d.Tag2, "Pos":d.Pos, "Neg":d.Neg, "Neu":d.Neu});
+            }
+        });
+        data = newData;
+        var keys = ["Pos", "Neg", "Neu"];
+
+        data.forEach(function(d) {
+        d.sentiment = keys.map(function(name) { return {name: name, value: +d[name]}; });
+        });
+
+        x0.domain(data.map(function(d) { return d.Tag2; }));
+        x1.domain(keys).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, d3.max(data, function(d) { return d3.max(d.sentiment, function(d) { return d.value; }); })]);
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("no. of quotes");
+
+        var Tag2 = svg.selectAll(".Tag2")
+            .data(data)
+            .enter().append("g")
+            .attr("class", "g")
+            .attr("transform", function(d) { return "translate(" + x0(d.Tag2) + ",0)"; });
+
+
+        Tag2.selectAll("rect")
+            .data(function(d) { return d.sentiment; })
+            .enter().append("rect")
+            .attr("width", x1.rangeBand())
+            .attr("x", function(d) { return x1(d.name); })
+            .attr("y", function(d) { return y(d.value); })
+            .attr("height", function(d) { return height - y(d.value); })
+            .style("fill", function(d) { return color(d.name); })
+            .on("mouseover", function() {
+              tooltip.style("display", null);
+            })
+            .on("mouseout", function() { tooltip.style("display", "none"); })
+            .on("mousemove", function(d) {
+                var xPosition = d3.event.pageX - 100;
+                var yPosition = d3.mouse(this)[1] - 25;
+                tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+                tooltip.select("text").text(d.value);
+            });
+
+        var legend = svg.selectAll(".legend")
+            .data(keys.slice().reverse())
+            .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+            .attr("x", width - 18)
+            .attr("width", 18)
+            .attr("height", 18)
+            .style("fill", color);
+
+        legend.append("text")
+            .attr("x", width - 24)
+            .attr("y", 9)
+            .attr("dy", ".35em")
+            .style("text-anchor", "end")
+            .text(function(d) { return d; });
+
+            // Prep the tooltip bits, initial display is hidden
+            var tooltip = svg.append("g")
+            .attr("class", "tooltip")
+            .style("display", "none");
+
+            tooltip.append("rect")
+            .attr("width", 30)
+            .attr("height", 20)
+            .attr("fill", "white")
+            .style("opacity", 0.5);
+
+            tooltip.append("text")
+            .attr("x", 15)
+            .attr("dy", "1.2em")
+            .style("text-anchor", "middle")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold");
+        });
+    }
+
+    //BEGIN QUOTES SECTION
+    function make_quotes_section(identifier, tag){
+        d3.csv("preprocessed_transcripts.csv", function(error, data){
+        //we are now putting our visualization inside our canvas
+            var newData = Array()
+            data.forEach(function(d){ //loops over each line of the data, d is row
+                if(d[tag] === "True"){
+                    newData.push(d["Text"]);
+                }
+            });
+            var theDiv = document.getElementById(identifier.substring(1,identifier.length));
+                newData.forEach(function(d){
+                var newline = document.createElement("br");
+                var seperator = document.createElement("hr");
+                var newline2 = document.createElement("br");
+                var textNode = document.createTextNode(d);
+                theDiv.appendChild(textNode);
+                theDiv.appendChild(newline);
+                theDiv.appendChild(seperator);
+            });
+        });
+    }
+    </script>
+</body>
+</html>

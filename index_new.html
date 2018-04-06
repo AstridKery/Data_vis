@@ -102,7 +102,8 @@
           active_segment.setAttribute("class", "ui bottom attached active tab segment");
           active_segment.setAttribute("data-tab", list_of_tags[i]+"_quotes");
           active_segment.setAttribute("id", list_of_tags[i]+"_quotes");
-
+          grid_row2.appendChild(active_segment);
+          
           make_stack_chart("#"+list_of_tags[i]+"_stack", list_of_tags[i], "Year");
           make_stack_chart("#"+list_of_tags[i]+"_stack", list_of_tags[i], "Major");
           make_stack_chart("#"+list_of_tags[i]+"_stack", list_of_tags[i], "Gender");

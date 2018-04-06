@@ -12,8 +12,8 @@
   <div class="ui container">
       <div id="context">
         <div class="ui tabular menu" id = "tab_menu">
-
         </div>
+
       </div>
   </div>
 
@@ -22,6 +22,7 @@
 
     <script>
         var list_of_tags = ["PROF","GEN","PEER","STERM","COMM","EXPM","IMP"];
+        var big_div = document.getElementById("context");
         for(i = 0; i < list_of_tags.length; i++)
         {
           var item_div = document.createElement("div");
@@ -35,14 +36,28 @@
           item_div.setAttribute("data-tab",list_of_tags[i]);
           item_div.setAttribute("data-content",list_of_tags[i]);
           item_div.innerHTML += list_of_tags[i];
-
+          //item_div.addEventListener("click", changeTab, false);
           var tab_menu = document.getElementById("tab_menu");
           tab_menu.appendChild(item_div);
 
+          //create the tab content
+          var tab_content_div = document.createElement("div");
+          if(i == 0){
+            tab_content_div.setAttribute("class","active ui tab segment");
+          }
+          else {
+            tab_content_div.setAttribute("class","ui tab segment");
+          }
+          tab_content_div.setAttribute("data-tab",list_of_tags[i]);
+          big_div.appendChild(tab_content_div);
 
         }
 
-
+        /*function changeTab(event)
+        {
+          console.log(event);
+            $.tab('change tab', 'tab-name');
+        }*/
 
         $('#context .menu .item').tab({context: 'parent'});
         $('.item').popup('hover');

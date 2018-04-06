@@ -36,7 +36,6 @@
           item_div.setAttribute("data-tab",list_of_tags[i]);
           item_div.setAttribute("data-content",list_of_tags[i]);
           item_div.innerHTML += list_of_tags[i];
-          //item_div.addEventListener("click", changeTab, false);
           var tab_menu = document.getElementById("tab_menu");
           tab_menu.appendChild(item_div);
 
@@ -53,11 +52,6 @@
 
         }
 
-        /*function changeTab(event)
-        {
-          console.log(event);
-            $.tab('change tab', 'tab-name');
-        }*/
 
         $('#context .menu .item').tab({context: 'parent'});
         $('.item').popup('hover');

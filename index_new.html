@@ -11,9 +11,7 @@
 <body>
   <div class="ui container">
       <div id="context">
-        <div class="ui tabular menu" id = "tab_menu">
-
-        </div>
+        <div class="ui tabular menu" id = "tab_menu"></div>  
       </div>
   </div>
 
@@ -22,24 +20,31 @@
 
     <script>
         var list_of_tags = ["PROF","GEN","PEER","STERM","COMM","EXPM","IMP"];
-        for(i = 0; i < list_of_tags.length; i++)
-        {
+        for(i = 0; i < list_of_tags.length; i++){
           var item_div = document.createElement("div");
-          if(i == 0)
-          {
+         // var tab_segment = document.createElement("div");
+          //var tab_grid = document.createElement("div");
+
+          if(i == 0){
             item_div.className = "item active";
+         //   tab_segment.className = "ui active tab segment";
+         //   tab_grid.className = "ui active tab segment";
+
           }
-          else {
+          else{
             item_div.className = "item";
+         //   tab_segment.className = "ui tab segment";
           }
+
           item_div.setAttribute("data-tab",list_of_tags[i]);
           item_div.setAttribute("data-content",list_of_tags[i]);
-          item_div.innerHTML += list_of_tags[i];
+          item_div.innerHTML += list_of_tags[i]; //setting text that goes in between tab thingy
 
           var tab_menu = document.getElementById("tab_menu");
           tab_menu.appendChild(item_div);
 
-
+        //  tab_segment.setAttribute("data-tab", list_of_tags[i];)
+          
         }
 
 

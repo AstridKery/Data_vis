@@ -23,18 +23,20 @@
         var list_of_tags = ["PROF","GEN","PEER","STERM","COMM","EXPM","IMP"];
         var big_div = document.getElementById("context");
        
-
         for(i = 0; i < list_of_tags.length; i++){
             var item_div = document.createElement("div");
-            var tab_content_div = document.createElement("div");
-            var tab_grid_div = document.createElement("div");
+            var tab_segment = document.createElement("div");
+            var tab_grid = document.createElement("div");
+            var grid_row = document.createElement("div");
+            var grid_column = document.createElement("div");
+            var grid_segment = document.createElement("div");
           if(i == 0){
             item_div.className = "item active";
-            tab_content_div.setAttribute("class","active ui tab segment");
+            tab_segment.setAttribute("class","active ui tab segment");
           }
           else{
             item_div.className = "item";
-            tab_content_div.setAttribute("class","ui tab segment");
+            tab_segment.setAttribute("class","ui tab segment");
           }
 
           item_div.setAttribute("data-tab",list_of_tags[i]);
@@ -43,14 +45,22 @@
           var tab_menu = document.getElementById("tab_menu");
           tab_menu.appendChild(item_div);
 
-          //create the tab content
-          tab_content_div.setAttribute("data-tab",list_of_tags[i]);
+          //create the grid(kinda like a table) content
+          tab_segment.setAttribute("data-tab",list_of_tags[i]);
+          big_div.appendChild(tab_segment);
           
+          tab_grid.className = "ui equal width grid";
+          tab_segment.appendChild(tab_grid);
           
-          tab_grid_div.className = "ui equal width grid";
-          tab_content_div.appendChild(tab_grid_div);
+          grid_row.className = "stretched row";
+          tab_grid.appendChild(grid_row);
           
-          big_div.appendChild(tab_content_div);
+          grid_column.className = "column";
+          grid_row.appendChild(grid_column);
+
+          grid_segment.setAttribute = ("class", "ui segment");
+          grid_segment.setAttribute = ("id", "ui segment");
+
         }
 
         $('#context .menu .item').tab({context: 'parent'});
